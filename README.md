@@ -1,6 +1,7 @@
 ## Link repository
 https://github.com/dietermeys/PHP2-ExtraOpdracht
-
+### Secret register code
+FjXk0ij5y645mmrHmzf2TDJDpJ2yJJPi
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)

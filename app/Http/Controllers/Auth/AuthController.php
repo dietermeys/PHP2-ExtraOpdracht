@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -22,7 +25,9 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
+    protected $redirectPath = '/content';
+    protected $redirectTo = '/content';
+    protected $loginPath = '/login';
     /**
      * Create a new authentication controller instance.
      *
@@ -45,6 +50,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'code' => 'min:32'
         ]);
     }
 
@@ -61,5 +67,28 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+
+    public function postRegister(Request $request)
+    {
+        $code = Input::get('secret_code');
+        if($code === "FjXk0ij5y645mmrHmzf2TDJDpJ2yJJPi") {
+            $validator = $this->validator($request->all());
+
+            if ($validator->fails()) {
+                $this->throwValidationException(
+                    $request, $validator
+                );
+            }
+
+            Auth::login($this->create($request->all()));
+
+            return redirect($this->redirectPath());
+        }
+        else{
+
+            return redirect('/register')->withErrors(['Secret code is wrong.']);
+        }
     }
 }
