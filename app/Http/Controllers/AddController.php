@@ -14,11 +14,16 @@ class AddController extends Controller
 {
     public function getContent(){
 
-        if (!Auth::check()){
-            return redirect('/login') ->with('message', 'Je moet ingelogd zijn.');
+        if (!Auth::check())
+        {
+            return redirect('/login')->with('error','you need to be logged in.');
         }
 
-        return view('blog.content');
+        $blogs = Add::all();
+
+        return view('blog.content',compact('blogs'));
+
+
     }
 
     public function getAddContent(){
@@ -33,37 +38,50 @@ class AddController extends Controller
 
     public function postAddContent(){
 
-    $url = Input::get('url');
-    if
-    (strpos($url, 'youtube.com/watch?v=') !== FALSE)
-    {
-        $type = 'youtube';
+        $url = Input::get('url');
 
-    }
-    else if(strpos($url, 'vimeo.com/channels/') !== FALSE)
-    {
-        $type = 'vimeo';
+        if(strpos($url, 'youtube.com/watch?v=') !== FALSE)
+        {
 
-    }
-    else if(strpos($url, 'soundcloud.com/') !== FALSE)
-    {
-        $type = 'soundcloud';
-    }
-    else
-    {
-        return redirect('/content/add')->with('error', 'Geen geldige url');
-    }
+            $type = 'Youtube';
+            $pieces = explode("v=", $url);
+            $mediaId = $pieces[1];
+
+        }
+        else if(strpos($url, 'vimeo.com/channels/') !== FALSE)
+        {
+            $type = 'Vimeo';
+            $pieces = explode("/", $url);
+            $mediaId = $pieces[5];
+
+        }
+        else if(strpos($url, 'soundcloud.com/') !== FALSE)
+        {
+
+            $type = 'Soundcloud';
+            $pieces = explode("/", $url);
+            $mediaId = $pieces[0];
+
+        }
+        else
+        {
+
+            return redirect('/content/add')->with('error','Cant use url!');
+
+        }
+
         $userId = Auth::id();
 
-        $add = new Add();
+        $post = new Add();
 
-        $add->url = $url;
-        $add->type = $type;
-        $add->userId = $userId;
+        $post->url = $url;
+        $post->type = $type;
+        $post->userId = $userId;
+        $post->mediaId = $mediaId;
+        $post->save();
 
-        $add->save();
+        return redirect('/content')->with('success','Post successfully created!');
 
-        return redirect('/content')->with('success', 'Post succesvol aangemaakt');
     }
     /**
      * Display a listing of the resource.

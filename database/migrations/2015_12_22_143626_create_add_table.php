@@ -16,6 +16,7 @@ class CreateAddTable extends Migration
             $table->increments('id');
             $table->string('url');
             $table->string('type');
+            $table->string('mediaId')->nullable();
             $table->integer('userId');
             $table->timestamps();
         });
