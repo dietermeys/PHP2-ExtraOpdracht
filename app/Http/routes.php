@@ -15,18 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register','Auth\AuthController@getRegister');
+Route::get('/register','UsersController@getRegister');
 Route::post('/register','Auth\AuthController@postRegister');
 
-Route::get('/login','Auth\AuthController@getLogin');
+Route::get('/login','UsersController@getLogin');
 Route::post('/login','Auth\AuthController@postLogin');
 
 Route::get('/logout','Auth\AuthController@getLogout');
 
-/*
-Route::get('/content','');
-Route::post('/content','');
 
-Route::get('/content/add','');
-Route::post('/content/add','');
-*/
+Route::get('/content','AddController@getContent');
+
+Route::get('/content/add','AddController@getAddContent');
+Route::post('/content/add','AddController@postAddContent');
