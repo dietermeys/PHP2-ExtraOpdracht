@@ -17,18 +17,21 @@ class AddSeeder extends Seeder
                 'type' => 'Youtube',
                 'mediaId' => 'u2l6nk7pMQ0',
                 'userId' => '1',
+                'created_at' => '2015-12-22 16:47:23',
             ],
             [
                 'url' => 'https://vimeo.com/147703699',
                 'type' => 'Vimeo',
                 'mediaId' => '147703699',
                 'userId' => '1',
+                'created_at' => '2015-12-22 16:47:24',
             ],
             [
                 'url' => 'https://soundcloud.com/didi-3-1/chill-mix-by-didi',
                 'type' => 'Soundcloud',
                 'mediaId' => 'null',
                 'userId' => '1',
+                'created_at' => '2015-12-22 16:47:25',
             ],
         ]);
     }
