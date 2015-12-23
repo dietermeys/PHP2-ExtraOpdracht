@@ -59,8 +59,7 @@ class AddController extends Controller
         {
 
             $type = 'Soundcloud';
-            $pieces = explode("/", $url);
-            $mediaId = $pieces[0];
+            $mediaId = 'null';
 
         }
         else
