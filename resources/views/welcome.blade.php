@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
+@section('content')
+    <div id="banner">
+        @if(Auth::guest())
+            <div class="container">
+                <h1>Welcome to Dieter's MINI CMS!!</h1>
+                <h2>Please register or sign in to view and add content!</h2>
+                <a href="/register" class="btn btn-default btn-lg button">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Register
+                </a>
+                <a href="/login" class="btn btn-default btn-lg button">
+                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
+                </a>
             </div>
-        </div>
-    </body>
-</html>
+        @else
+            <div class="container">
+                <h1>Welcome to Dieter's MINI CMS!!</h1>
+                <h2>Now you can view or add content!</h2>
+                <a href="/content" class="btn btn-default btn-lg button">
+                    <span class="glyphicon glyphicon-expand" aria-hidden="true"></span> View content
+                </a>
+                <a href="/content/add" class="btn btn-default btn-lg button">
+                    <span class="glyphicon glyphicon-collapse-up" aria-hidden="true"></span> Add content
+                </a>
+            </div>
+        @endif
+    </div>
+
+@endsection

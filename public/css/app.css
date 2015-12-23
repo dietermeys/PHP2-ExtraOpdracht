@@ -4,3 +4,34 @@
 .margin{
   position: fixed;
 }
+#banner{
+  padding-top: 50px;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/images/banner.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.container{
+  text-align: center;
+  color: #262626;
+  margin-top: 15%;
+  min-height: 250px;
+  background-color: rgba(255, 255, 255, 0.47);
+}
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+  text-decoration: none;
+  color: initial;
+}
+.container h1{
+  font-size: 55px;
+}
+.container h2{
+  font-size: 33px;
+}
