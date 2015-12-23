@@ -16,7 +16,7 @@ class AddController extends Controller
 
         if (!Auth::check())
         {
-            return redirect('/login')->with('error','you need to be logged in.');
+            return redirect('/login')->with('error','You need to be logged in!');
         }
 
         $blogs = Add::all();
@@ -29,7 +29,7 @@ class AddController extends Controller
     public function getAddContent(){
 
         if (!Auth::check()){
-            return redirect('/login') ->with('message', 'Je moet ingelogd zijn.');
+            return redirect('/login') ->with('message', 'You need to be logged in!');
         }
 
         return view('blog.add');

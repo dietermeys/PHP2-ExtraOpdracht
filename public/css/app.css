@@ -14,7 +14,7 @@
   -o-background-size: cover;
   background-size: cover;
 }
-.container{
+#banner .container{
   text-align: center;
   color: #262626;
   margin-top: 15%;
@@ -34,4 +34,13 @@ a.button {
 }
 .container h2{
   font-size: 33px;
+}
+.container{
+  color: #262626;
+  margin-top: 5%;
+}
+.panel{
+  width: 370px;
+  float: left;
+  margin: 5px;
 }
