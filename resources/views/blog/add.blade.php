@@ -17,6 +17,7 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="form-container">
                 <h1 class="col-sm-offset-1">Add content</h1>
+                <p class="col-sm-offset-1">Only youtube-, vimeo- & soundcloud links allowed!</p>
                 {!!   Form::open(array('url' => 'add')) !!}
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-1">
