@@ -33,7 +33,7 @@
                     <li><a href="/login">Sign in</a></li>
                 @else
                     <li><a href="/content">Content</a></li>
-                    <li><a href="/content/add">Add content</a></li>
+                    <li><a href="/add">Add content</a></li>
                     <li><a href="/logout">Logout</a></li>
                 @endif
             </ul>

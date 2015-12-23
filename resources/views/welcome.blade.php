@@ -20,7 +20,7 @@
                 <a href="/content" class="btn btn-default btn-lg button">
                     <span class="glyphicon glyphicon-expand" aria-hidden="true"></span> View content
                 </a>
-                <a href="/content/add" class="btn btn-default btn-lg button">
+                <a href="/add" class="btn btn-default btn-lg button">
                     <span class="glyphicon glyphicon-collapse-up" aria-hidden="true"></span> Add content
                 </a>
             </div>

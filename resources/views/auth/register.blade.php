@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+    <div id="banner1">
     @if (count($errors) > 0)
         <div class="alert alert-danger margin">
                 @foreach ($errors->all() as $error)
@@ -8,6 +9,7 @@
                 @endforeach
         </div>
     @endif
+    <div class="container" style="height: 550px;">
     <div class="form-only">
         <div class="col-md-6 col-md-offset-3">
             <div class="form-container">
@@ -53,4 +55,6 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 @endsection

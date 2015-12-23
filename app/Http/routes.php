@@ -26,5 +26,5 @@ Route::get('/logout','Auth\AuthController@getLogout');
 
 Route::get('/content','AddController@getContent');
 
-Route::get('/content/add','AddController@getAddContent');
-Route::post('/content/add','AddController@postAddContent');
+Route::get('/add','AddController@getAddContent');
+Route::post('/add','AddController@postAddContent');

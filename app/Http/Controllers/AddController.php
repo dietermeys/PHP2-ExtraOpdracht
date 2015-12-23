@@ -66,7 +66,7 @@ class AddController extends Controller
         else
         {
 
-            return redirect('/content/add')->with('error','Cant use url!');
+            return redirect('/add')->with('error','Cant use url!');
 
         }
 
