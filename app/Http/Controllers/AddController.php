@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Add;
+use App\Comment;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -20,8 +21,9 @@ class AddController extends Controller
         }
 
         $blogs = Add::all();
+        $comments = Comment::all();
 
-        return view('blog.content',compact('blogs'));
+        return view('blog.content',compact('blogs', 'comments'));
 
 
     }
@@ -82,6 +84,22 @@ class AddController extends Controller
         return redirect('/content')->with('success','Post successfully created!');
 
     }
+    public function postComment()
+    {
+        $contentComment = Input::get('comment');
+        $contentId = Input::get('content');
+        $userId = Auth::id();
+
+        $comment = new Comment();
+
+        $comment->comment = $contentComment;
+        $comment->userId = $userId;
+        $comment->contentId = $contentId;
+        $comment->save();
+
+        return redirect('/content')->with('succes', 'Comment posted!');
+    }
+
     /**
      * Display a listing of the resource.
      *
