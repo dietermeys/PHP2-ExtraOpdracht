@@ -25,8 +25,8 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-    protected $redirectPath = '/content';
-    protected $redirectTo = '/content';
+    protected $redirectPath = '/';
+    protected $redirectTo = '/';
     protected $loginPath = '/login';
     /**
      * Create a new authentication controller instance.
@@ -73,7 +73,7 @@ class AuthController extends Controller
     public function postRegister(Request $request)
     {
         $code = Input::get('secret_code');
-        if($code === "FjXk0ij5y645mmrHmzf2TDJDpJ2yJJPi") {
+        if($code === "test") {
             $validator = $this->validator($request->all());
 
             if ($validator->fails()) {
