@@ -73,7 +73,7 @@ class AuthController extends Controller
     public function postRegister(Request $request)
     {
         $code = Input::get('secret_code');
-        if($code === "test") {
+        if($code === "weareimd") {
             $validator = $this->validator($request->all());
 
             if ($validator->fails()) {
